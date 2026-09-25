@@ -566,17 +566,24 @@
       margin-top: 12px;
     }
     .exp-bullets li {
-      font-size: 0.94rem;
+      font-size: 0.95rem;
       color: var(--text-secondary);
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
+      display: block;
+      position: relative;
+      padding-left: 22px;
+      line-height: 1.68;
+    }
+    .exp-bullets li strong {
+      color: var(--text-primary);
+      font-weight: 700;
     }
     .exp-bullets li::before {
       content: "▹";
       color: var(--accent-pink);
       font-weight: 800;
-      flex-shrink: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
 
     /* 20+ Commercial Projects Grid + Filters */
@@ -1352,10 +1359,11 @@
         </div>
 
         <div class="skill-group">
-          <h3>🐞 Defect Management &amp; Agile</h3>
+          <h3>🐞 Defect Management, Tools &amp; Agile</h3>
           <div class="skill-pills">
-            <span class="skill-pill">Excel Defect Logs Defect Lifecycle</span>
-            <span class="skill-pill">Multi-Sheet Excel Bug Logs</span>
+            <span class="skill-pill">Reproducible Bug Reporting</span>
+            <span class="skill-pill">Multi-Sheet Excel Defect Workbooks</span>
+            <span class="skill-pill">Jira &amp; ClickUp (Issue &amp; Sprint Tracking)</span>
             <span class="skill-pill">Root-Cause Isolation</span>
             <span class="skill-pill">Severity vs Priority Triage</span>
             <span class="skill-pill">Agile / Scrum Sprint QA</span>
