@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muqadas Nisar — Software Quality Assurance (SQA) Engineer Portfolio</title>
+  <meta name="description" content="Portfolio of Muqadas Nisar, Software Quality Assurance (SQA) Engineer specializing in Manual Functional Testing, Figma UI Parity, REST API Testing (Postman), Performance Testing (Apache JMeter), SQL Verification, and Playwright E2E Automation." />
+  <link rel="icon" type="image/svg+xml" href="./assets/logo.svg" />
+  <link rel="alternate icon" href="./assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-base: #060611;
+      --bg-surface: rgba(16, 14, 34, 0.82);
+      --bg-card: rgba(22, 18, 46, 0.86);
+      --bg-card-hover: rgba(31, 25, 64, 0.95);
+      --bg-code: #090818;
+      --text-primary: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
+      --border: rgba(168, 85, 247, 0.24);
+      --border-strong: rgba(236, 72, 153, 0.5);
+      --accent-pink: #EC4899;
+      --accent-purple: #9333EA;
+      --accent-indigo: #6366F1;
+      --accent-emerald: #10B981;
+      --grad-primary: linear-gradient(135deg, #EC4899 0%, #9333EA 55%, #6366F1 100%);
+      --grad-subtle: linear-gradient(135deg, rgba(236, 72, 153, 0.14) 0%, rgba(147, 51, 234, 0.14) 100%);
+      --shadow-glow: 0 12px 38px -8px rgba(236, 72, 153, 0.28);
+      --shadow-card: 0 14px 34px rgba(3, 2, 12, 0.65);
+    }
+
+    :root[data-theme="light"] {
+      --bg-base: #FAF7FF;
+      --bg-surface: rgba(255, 255, 255, 0.9);
+      --bg-card: rgba(255, 255, 255, 0.96);
+      --bg-card-hover: #F5F0FF;
+      --bg-code: #1E1B4B;
+      --text-primary: #0F172A;
+      --text-secondary: #334155;
+      --text-muted: #64748B;
+      --border: rgba(147, 51, 234, 0.22);
+      --border-strong: rgba(219, 39, 119, 0.45);
+      --shadow-glow: 0 12px 32px -6px rgba(147, 51, 234, 0.2);
+      --shadow-card: 0 10px 28px rgba(109, 40, 217, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.65;
+      overflow-x: hidden;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(115px);
+      opacity: 0.24;
+      animation: floatOrb 11s ease-in-out infinite alternate;
+    }
+    :root[data-theme="light"] .orb { opacity: 0.14; }
+    .orb-1 { width: 460px; height: 460px; background: #EC4899; top: -120px; left: -100px; }
+    .orb-2 { width: 420px; height: 420px; background: #9333EA; bottom: 8%; right: -110px; animation-delay: 2s; }
+    .orb-3 { width: 340px; height: 340px; background: #6366F1; top: 44%; left: 38%; animation-delay: 4s; }
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(28px, -28px) scale(1.08); }
+    }
+
+    /* Sticky Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-surface);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+    .nav-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent-pink);
+      box-shadow: 0 0 14px rgba(236, 72, 153, 0.5);
+    }
+    .brand-gradient {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 8px 13px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover {
+      color: var(--text-primary);
+      background: var(--grad-subtle);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .theme-btn {
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      padding: 8px 13px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .theme-btn:hover {
+      border-color: var(--accent-pink);
+      transform: translateY(-1px);
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--grad-primary);
+      color: #FFFFFF !important;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 11px 20px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-glow);
+      transition: all 0.22s ease;
+      font-family: inherit;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 11px 20px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-strong);
+      cursor: pointer;
+      transition: all 0.22s ease;
+      font-family: inherit;
+    }
+    .btn-outline:hover {
+      background: var(--grad-subtle);
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section {
+      padding: 58px 0;
+    }
+    .section-header {
+      margin-bottom: 32px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-pink);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.35rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 4px;
+      margin-top: 8px;
+      border-radius: 999px;
+      background: var(--grad-primary);
+    }
+    .section-sub {
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+      max-width: 680px;
+      margin-top: 8px;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 64px 0 48px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.32fr 0.88fr;
+      gap: 38px;
+      align-items: center;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 6px 15px;
+      border-radius: 999px;
+      background: var(--grad-subtle);
+      border: 1px solid var(--border-strong);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+    }
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 12px #10B981;
+      animation: pulseDot 2s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.75; }
+    }
+    .hero-heading {
+      font-size: clamp(2.25rem, 4.4vw, 3.65rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin-bottom: 26px;
+    }
+    .hero-lead strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 15px 16px;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-pink);
+    }
+    .stat-num {
+      font-size: 1.65rem;
+      font-weight: 800;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* SQA Engineer Profile & Live Telemetry Card */
+    .profile-showcase {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-strong);
+      border-radius: 24px;
+      padding: 26px 24px;
+      box-shadow: var(--shadow-glow);
+      text-align: center;
+    }
+    .profile-img-wrap {
+      width: 128px;
+      height: 128px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      padding: 4px;
+      background: var(--grad-primary);
+      box-shadow: 0 0 28px rgba(236, 72, 153, 0.45);
+    }
+    .profile-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--bg-base);
+    }
+    .profile-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .profile-role {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent-pink);
+      margin-top: 2px;
+    }
+    .profile-loc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+      margin-bottom: 14px;
+    }
+    .qa-health-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .qa-health-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-bottom: 7px;
+      color: var(--text-secondary);
+    }
+    .qa-health-bar {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      display: flex;
+    }
+    .qa-seg-pass { width: 92%; background: #10B981; }
+    .qa-seg-fixed { width: 8%; background: #EC4899; }
+    .profile-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .mini-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--grad-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+    .profile-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .profile-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 0.79rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text-primary);
+      background: rgba(147, 51, 234, 0.12);
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+    .profile-link-btn:hover {
+      border-color: var(--accent-pink);
+      background: rgba(236, 72, 153, 0.2);
+      transform: translateY(-1px);
+    }
+
+    /* 6-Stage STLC Process Grid */
+    .stlc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+    }
+    .stlc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      transition: all 0.22s ease;
+    }
+    .stlc-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-pink);
+    }
+    .stlc-step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: var(--grad-subtle);
+      border: 1px solid var(--border-strong);
+      color: var(--accent-pink);
+      margin-bottom: 10px;
+    }
+    .stlc-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .stlc-card p {
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* Experience Timeline */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .exp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent-pink);
+      border-radius: 18px;
+      padding: 26px 28px;
+      box-shadow: var(--shadow-card);
+      transition: all 0.25s ease;
+    }
+    .exp-card:hover {
+      border-color: var(--accent-pink);
+      transform: translateY(-2px);
+    }
+    .exp-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .exp-role {
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+    .exp-company {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--accent-pink);
+      margin-top: 2px;
+    }
+    .exp-period {
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 6px 13px;
+      border-radius: 999px;
+      background: var(--grad-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+    .exp-bullets {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .exp-bullets li {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .exp-bullets li::before {
+      content: "▹";
+      color: var(--accent-pink);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* 20+ Commercial Projects Grid + Filters */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .filter-btn {
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--grad-primary);
+      color: #FFFFFF;
+      border-color: transparent;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-pink);
+      box-shadow: var(--shadow-glow);
+    }
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .project-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+    .project-domain {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--grad-subtle);
+      border: 1px solid var(--border);
+      color: var(--accent-pink);
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .project-desc {
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .project-tag {
+      font-size: 0.71rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--text-secondary);
+    }
+
+    /* Skills Categorized Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 18px;
+    }
+    .skill-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow-card);
+    }
+    .skill-group h3 {
+      font-size: 1.02rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-pill {
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: var(--grad-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+    }
+    .skill-pill:hover {
+      background: var(--grad-primary);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    /* Interactive QA Workbench & Sample Deliverables */
+    .workbench-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: var(--shadow-card);
+    }
+    .wb-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+    .wb-tab {
+      cursor: pointer;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s ease;
+    }
+    .wb-tab:hover {
+      color: var(--text-primary);
+      border-color: var(--accent-pink);
+    }
+    .wb-tab.active {
+      background: var(--grad-primary);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 4px 16px rgba(236, 72, 153, 0.38);
+    }
+    .wb-panel {
+      display: none;
+      animation: fadeIn 0.22s ease;
+    }
+    .wb-panel.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .tc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 16px;
+    }
+    .tc-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .tc-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .tc-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(147, 51, 234, 0.22);
+      color: #E879F9;
+      border: 1px solid rgba(232, 121, 249, 0.4);
+    }
+    :root[data-theme="light"] .tc-id { color: #6D28D9; }
+    .badge-pass {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+    .badge-fail {
+      background: rgba(244, 63, 94, 0.18);
+      color: #FB7185;
+      border: 1px solid rgba(244, 63, 94, 0.5);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+    :root[data-theme="light"] .badge-pass { color: #047857; }
+    :root[data-theme="light"] .badge-fail { color: #BE123C; }
+    .tc-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+    .tc-meta {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+    .tc-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      background: var(--bg-code);
+      color: #E2E8F0;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow-x: auto;
+    }
+    .code-block {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.83rem;
+      line-height: 1.6;
+      background: var(--bg-code);
+      color: #F1F5F9;
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .bva-bar {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+    }
+    .bva-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .bva-item {
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    .bva-reject {
+      background: rgba(244, 63, 94, 0.14);
+      border-color: rgba(244, 63, 94, 0.45);
+      color: #FDA4AF;
+    }
+    .bva-accept {
+      background: rgba(16, 185, 129, 0.14);
+      border-color: rgba(16, 185, 129, 0.45);
+      color: #6EE7B7;
+    }
+    :root[data-theme="light"] .bva-reject { color: #BE123C; }
+    :root[data-theme="light"] .bva-accept { color: #047857; }
+
+    /* Achievements Row */
+    .achievements-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      gap: 14px;
+    }
+    .ach-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-card);
+    }
+    .ach-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--grad-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .ach-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+    .ach-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-strong);
+      border-radius: 24px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      align-items: center;
+      box-shadow: var(--shadow-glow);
+    }
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+    }
+    .contact-item:hover {
+      border-color: var(--accent-pink);
+      transform: translateX(4px);
+    }
+
+    /* Printable Resume Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 2, 12, 0.82);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .resume-modal {
+      background: #FFFFFF;
+      color: #0F172A;
+      max-width: 860px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 18px;
+      padding: 36px 42px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.65);
+    }
+    .resume-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #E2E8F0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 38px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid, .contact-card {
+        grid-template-columns: 1fr;
+      }
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media print {
+      body * { visibility: hidden; }
+      #resumeModal, #resumeModal * { visibility: visible; }
+      #resumeModal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #FFF;
+        padding: 0;
+      }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Sticky Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#top" class="nav-brand">
+        <svg width="38" height="38" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:11px;box-shadow:0 4px 16px rgba(236,72,153,0.35);flex-shrink:0;">
+          <defs>
+            <linearGradient id="navSqaBg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#161136"/>
+              <stop offset="100%" stop-color="#090718"/>
+            </linearGradient>
+            <linearGradient id="navSqaGrad" x1="10" y1="8" x2="110" y2="112" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#EC4899"/>
+              <stop offset="52%" stop-color="#9333EA"/>
+              <stop offset="100%" stop-color="#6366F1"/>
+            </linearGradient>
+            <linearGradient id="navSqaCheck" x1="38" y1="45" x2="84" y2="78" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#34D399"/>
+              <stop offset="100%" stop-color="#10B981"/>
+            </linearGradient>
+          </defs>
+          <rect x="6" y="6" width="108" height="108" rx="28" fill="url(#navSqaBg)" stroke="url(#navSqaGrad)" stroke-width="6"/>
+          <path d="M60 20L92 33V59C92 80.5 78.2 96.4 60 103C41.8 96.4 28 80.5 28 59V33L60 20Z" fill="rgba(147, 51, 234, 0.22)" stroke="url(#navSqaGrad)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M44 60.5L55.5 72L78 47.5" stroke="url(#navSqaCheck)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Muqadas <span class="brand-gradient">Nisar</span> <span style="font-size:0.74rem;font-weight:700;color:var(--text-muted);margin-left:4px;">| SQA Engineer</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#process" class="nav-link">STLC Process</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">20+ Projects Tested</a>
+        <a href="#skills" class="nav-link">QA Stack</a>
+        <a href="#deliverables" class="nav-link">QA Deliverables</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀️ Light</button>
+        <button type="button" class="btn-outline" style="padding:8px 14px;font-size:0.82rem;" onclick="openResumeModal()">📄 Resume / CV</button>
+        <a href="mailto:muqadasnisar.sqa@gmail.com" class="btn-primary" style="padding:8px 15px;font-size:0.82rem;">📧 Hire Me</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span>Software Quality Assurance (SQA) Engineer • Open to Opportunities</span>
+          </div>
+
+          <h1 class="hero-heading">
+            Ensuring Zero-Defect Releases Through <span class="brand-gradient">Structured SQA Engineering</span>
+          </h1>
+
+          <p class="hero-lead">
+            Hi, I'm <strong>Muqadas Nisar</strong> — a detail-oriented Software Quality Assurance Engineer specializing in
+            <strong>Manual &amp; Functional Testing</strong>, <strong>Figma-to-UI Parity</strong>,
+            <strong>REST API Testing (Postman)</strong>, <strong>Performance &amp; Load Testing (Apache JMeter)</strong>,
+            <strong>SQL Database Verification</strong>, and <strong>Playwright E2E Automation</strong>.
+          </p>
+
+          <div class="hero-cta-row">
+            <a href="#projects" class="btn-primary">
+              🚀 Explore 20+ Tested Products
+            </a>
+            <a href="#deliverables" class="btn-outline">
+              🧪 View Sample Test Cases &amp; Bug Reports
+            </a>
+            <button type="button" class="btn-outline" onclick="openResumeModal()">
+              📄 View Printable CV
+            </button>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stat-num">3+ Yrs</div>
+              <div class="stat-label">SQA Engineering Experience</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">20+</div>
+              <div class="stat-label">Web, Mobile &amp; AI Platforms Tested</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">1,500+</div>
+              <div class="stat-label">Manual &amp; API Test Cases Authored</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">450+</div>
+              <div class="stat-label">Critical &amp; Major Defects Verified</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SQA Profile Card -->
+        <aside class="profile-showcase">
+          <div class="profile-img-wrap">
+            <img src="./assets/author_profile.jpg" alt="Muqadas Nisar — SQA Engineer" />
+          </div>
+          <div class="profile-name">Muqadas Nisar</div>
+          <div class="profile-role">Software Quality Assurance (SQA) Engineer</div>
+          <div class="profile-loc">📍 Rawalpindi / Islamabad, Pakistan • Remote &amp; On-Site</div>
+
+          <div class="qa-health-box">
+            <div class="qa-health-top">
+              <span>✅ RELEASE SIGN-OFF QUALITY SCORE</span>
+              <span style="color:#10B981;">99.4% Defect-Free</span>
+            </div>
+            <div class="qa-health-bar">
+              <div class="qa-seg-pass"></div>
+              <div class="qa-seg-fixed"></div>
+            </div>
+          </div>
+
+          <div class="profile-badges">
+            <span class="mini-badge">🏆 Employee of the Month</span>
+            <span class="mini-badge">🧪 Manual, UI &amp; Regression QA</span>
+            <span class="mini-badge">🌐 Postman API &amp; JMeter Load</span>
+            <span class="mini-badge">🎭 Playwright &amp; SQL Verification</span>
+          </div>
+
+          <div class="profile-links">
+            <a href="https://www.linkedin.com/in/muqadas-nisar" target="_blank" rel="noreferrer" class="profile-link-btn">
+              🔗 LinkedIn Profile
+            </a>
+            <a href="mailto:muqadasnisar.sqa@gmail.com" class="profile-link-btn">
+              📧 Email Direct
+            </a>
+            <a href="./assets/SpecToTest_Defect_Log_Sample.xlsx" download class="profile-link-btn">
+              📗 Bug Report (.xlsx)
+            </a>
+            <a href="https://spectotest-studio.vercel.app" target="_blank" rel="noreferrer" class="profile-link-btn">
+              ⚡ My QA Tool (Live)
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 6-Stage STLC & QA Methodology Section -->
+    <section id="process">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">🔄 Software Testing Life Cycle (STLC)</div>
+          <h2 class="section-title">How I Guarantee Release Quality</h2>
+          <p class="section-sub">
+            My structured 6-stage QA methodology ensures every feature is validated from requirement gathering and Figma design specs to API load testing and production release sign-off.
+          </p>
+        </div>
+      </div>
+
+      <div class="stlc-grid">
+        <div class="stlc-card">
+          <span class="stlc-step-badge">STAGE 01 • REQUIREMENTS &amp; FIGMA</span>
+          <h3>SRS Review &amp; Figma Design Parity</h3>
+          <p>Analyze SRS/PRD documents, user stories, and Figma mockups to identify edge cases, missing validation rules, and UI/UX discrepancies before development concludes.</p>
+        </div>
+
+        <div class="stlc-card">
+          <span class="stlc-step-badge">STAGE 02 • TEST PLANNING &amp; DESIGN</span>
+          <h3>Test Suites, EP, BVA &amp; Traceability</h3>
+          <p>Author comprehensive Test Plans, Requirement Traceability Matrices (RTM), Equivalence Partitioning (EP), and 6-point Boundary Value Analysis (BVA) test cases.</p>
+        </div>
+
+        <div class="stlc-card">
+          <span class="stlc-step-badge">STAGE 03 • FUNCTIONAL &amp; MULTI-PORTAL UI</span>
+          <h3>Web, Mobile, Admin &amp; Cross-Browser QA</h3>
+          <p>Execute Smoke, Sanity, Functional, and Responsiveness testing across Customer Web, iOS/Android Mobile Apps, Admin Dashboards, Kitchen, and Driver portals.</p>
+        </div>
+
+        <div class="stlc-card">
+          <span class="stlc-step-badge">STAGE 04 • API, PERFORMANCE &amp; SQL</span>
+          <h3>Postman API, JMeter Load &amp; DB Audits</h3>
+          <p>Validate REST API status codes, JSON schemas, and response SLAs in Postman, run load/stress tests via Apache JMeter, and verify database integrity using SQL JOINs.</p>
+        </div>
+
+        <div class="stlc-card">
+          <span class="stlc-step-badge">STAGE 05 • DEFECT TRIAGE &amp; LIFECYCLE</span>
+          <h3>Reproducible Bug Reporting in Jira</h3>
+          <p>Log clear, developer-ready bug reports with Severity &amp; Priority (`S1–S4 / P1–P4`), ordered Steps to Reproduce, HAR network traces, console logs, and video evidence.</p>
+        </div>
+
+        <div class="stlc-card">
+          <span class="stlc-step-badge">STAGE 06 • REGRESSION &amp; AUTOMATION</span>
+          <h3>Full Regression &amp; Playwright Sign-Off</h3>
+          <p>Re-test resolved defects, execute end-to-end regression suites and Playwright automation scripts, and deliver formal QA Release Health Sign-Off.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Work Experience Section -->
+    <section id="experience">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">💼 Career Trajectory</div>
+          <h2 class="section-title">Professional SQA Experience</h2>
+          <p class="section-sub">
+            Proven track record of owning end-to-end quality assurance across AI healthcare platforms, multi-portal FoodTech ecosystems, FinTech, and E-Commerce products.
+          </p>
+        </div>
+      </div>
+
+      <div class="exp-list">
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <div class="exp-role">Software Quality Assurance Engineer</div>
+              <div class="exp-company">Alright Tech Private Limited • Rawalpindi, Pakistan</div>
+            </div>
+            <span class="exp-period">May 2024 — Present</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Actively collaborate with international clients during requirements gathering sessions, sprint reviews, and defect triage meetings to ensure QA deliverables align with business and user expectations.</li>
+            <li>Lead UI, Functional, Regression, Usability, and Cross-Device Responsiveness testing across multi-module platforms including <strong>CovAlign AI</strong>, <strong>Pommy Foods</strong>, <strong>SkilledTalk</strong>, and <strong>Chef Bright</strong>.</li>
+            <li>Perform REST API testing using <strong>Postman</strong> and conduct Performance &amp; Load testing using <strong>Apache JMeter</strong> to validate system stability under peak concurrency.</li>
+            <li>Built <strong>SpecToTest Studio</strong> to automate 11-category test case synthesis from SRS documents and standardize 2-sheet Excel defect reporting across QA cycles.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <div class="exp-role">Software Quality Assurance Engineer</div>
+              <div class="exp-company">Appium Logics Solution</div>
+            </div>
+            <span class="exp-period">Sep 2023 — Jun 2024</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Performed manual functional, smoke, sanity, and regression testing across web and mobile applications to guarantee release stability.</li>
+            <li>Designed structured test cases using Equivalence Partitioning (EP) and Boundary Value Analysis (BVA) and tracked defect lifecycles to closure in Jira.</li>
+            <li>Collaborated closely with engineering and design teams to verify bug fixes, validate Figma UI parity, and improve overall product quality.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 20+ Commercial Projects Section -->
+    <section id="projects">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">🚀 Production QA Track Record</div>
+          <h2 class="section-title">20+ Products &amp; Client Platforms Tested</h2>
+          <p class="section-sub">
+            Hands-on UI, Functional, Figma Parity, REST API, Regression, Cross-Device Responsiveness, and Performance testing across diverse industry domains:
+          </p>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <button type="button" class="filter-btn active" onclick="filterProjects('all', this)">All Projects (20)</button>
+        <button type="button" class="filter-btn" onclick="filterProjects('ai', this)">🤖 AI &amp; SaaS Platforms</button>
+        <button type="button" class="filter-btn" onclick="filterProjects('fintech', this)">💳 FinTech, E-Commerce &amp; Security</button>
+        <button type="button" class="filter-btn" onclick="filterProjects('mobile', this)">📱 Mobile, FoodTech &amp; Multi-Portal</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+
+    <!-- Core SQA Skills & Tooling Matrix -->
+    <section id="skills">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">🛠️ Technical SQA Stack</div>
+          <h2 class="section-title">QA Methodologies &amp; Tools</h2>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>🧪 Manual, UI &amp; Functional QA</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">SRS &amp; PRD Requirement Analysis</span>
+            <span class="skill-pill">Test Case &amp; RTM Authoring</span>
+            <span class="skill-pill">Figma-to-UI Parity Testing</span>
+            <span class="skill-pill">Equivalence Partitioning (EP)</span>
+            <span class="skill-pill">Boundary Value Analysis (BVA)</span>
+            <span class="skill-pill">Smoke &amp; Sanity Testing</span>
+            <span class="skill-pill">End-to-End Regression Testing</span>
+            <span class="skill-pill">Cross-Browser &amp; Mobile Responsiveness</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>🌐 API, Performance &amp; Database QA</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Postman API Testing</span>
+            <span class="skill-pill">pm.test JS Assertions</span>
+            <span class="skill-pill">REST &amp; JSON Schema Validation</span>
+            <span class="skill-pill">Apache JMeter (Load &amp; Stress)</span>
+            <span class="skill-pill">SQL Queries (INNER/LEFT JOIN)</span>
+            <span class="skill-pill">Database State Verification</span>
+            <span class="skill-pill">Chrome DevTools &amp; HAR Traces</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>🎭 Automation &amp; Security QA</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Playwright E2E Automation</span>
+            <span class="skill-pill">BDD Gherkin (.feature)</span>
+            <span class="skill-pill">OWASP Top 10 Security Checks</span>
+            <span class="skill-pill">SQLi &amp; XSS Input Validation</span>
+            <span class="skill-pill">Rate-Limit &amp; Auth Lockout QA</span>
+            <span class="skill-pill">WCAG Accessibility Checks</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>🐞 Defect Management &amp; Agile</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Jira Defect Lifecycle</span>
+            <span class="skill-pill">Multi-Sheet Excel Bug Logs</span>
+            <span class="skill-pill">Root-Cause Isolation</span>
+            <span class="skill-pill">Severity vs Priority Triage</span>
+            <span class="skill-pill">Agile / Scrum Sprint QA</span>
+            <span class="skill-pill">SDLC &amp; STLC Governance</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sample QA Deliverables & Live QA Workbench -->
+    <section id="deliverables">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">🔬 Sample SQA Work Samples</div>
+          <h2 class="section-title">Live QA Deliverables &amp; Test Artifacts</h2>
+          <p class="section-sub">
+            Inspect real examples of how I design manual test cases, apply Boundary Value Analysis (BVA), report high-severity defects, validate REST APIs in Postman, verify databases via SQL, and automate E2E flows in Playwright.
+          </p>
+        </div>
+        <div>
+          <a href="./assets/SpecToTest_Defect_Log_Sample.xlsx" download class="btn-primary" style="font-size:0.86rem;padding:10px 18px;">
+            📥 Download Sample 2-Sheet Excel Defect Workbook (.xlsx)
+          </a>
+        </div>
+      </div>
+
+      <div class="workbench-wrap">
+        <div class="wb-tabs">
+          <button type="button" class="wb-tab active" onclick="switchWbTab('tab-tc', this)">📋 1. Manual Test Suite &amp; BVA</button>
+          <button type="button" class="wb-tab" onclick="switchWbTab('tab-bug', this)">🐞 2. S1/P1 Defect Report Sample</button>
+          <button type="button" class="wb-tab" onclick="switchWbTab('tab-api', this)">🌐 3. Postman API Script (pm.test)</button>
+          <button type="button" class="wb-tab" onclick="switchWbTab('tab-sql', this)">🗄️ 4. SQL Data Integrity Queries</button>
+          <button type="button" class="wb-tab" onclick="switchWbTab('tab-pw', this)">🎭 5. Playwright E2E Automation</button>
+        </div>
+
+        <!-- Tab 1: Test Suite & BVA -->
+        <div id="tab-tc" class="wb-panel active">
+          <div class="tc-grid">
+            <div class="tc-card">
+              <div class="tc-top">
+                <span class="tc-id">TC-001 • Functional (P1 High)</span>
+                <span class="badge-pass">✅ PASSED</span>
+              </div>
+              <div class="tc-title">Verify Valid Multi-Factor Authentication (MFA) Login with Email, Password &amp; 6-Digit TOTP</div>
+              <div class="tc-meta"><strong>Precondition:</strong> User account is active and enrolled in 2FA authenticator.</div>
+              <div class="tc-code">payload: email="muqadas.qa@enterprise.io", totp="482910"
+expected: HTTP 200 OK; JWT issued (15m TTL) -> /dashboard</div>
+            </div>
+
+            <div class="tc-card">
+              <div class="tc-top">
+                <span class="tc-id">TC-002 • Responsiveness &amp; UI (P1 High)</span>
+                <span class="badge-pass">✅ PASSED</span>
+              </div>
+              <div class="tc-title">Figma Design Parity &amp; Cross-Browser Viewport Matrix (Chrome, Safari, Firefox, iOS &amp; Android)</div>
+              <div class="tc-meta"><strong>Precondition:</strong> Staging build deployed across Desktop (`1920x1080`) &amp; Mobile (`390x844`).</div>
+              <div class="tc-code">engines: ["Blink", "WebKit", "Gecko"]
+expected: Pixel-accurate Figma alignment; zero horizontal overflow</div>
+            </div>
+
+            <div class="tc-card">
+              <div class="tc-top">
+                <span class="tc-id">TC-003 • Security OWASP (P1 High)</span>
+                <span class="badge-fail">❌ FAILED (DEFECT-TC-003)</span>
+              </div>
+              <div class="tc-title">Verify Account Lockout Enforcement After 5 Consecutive Failed Login Attempts</div>
+              <div class="tc-meta"><strong>Precondition:</strong> Rate-limiting active on `/api/v1/auth/login` endpoint.</div>
+              <div class="tc-code">actual: 6th attempt on Safari 17.4 WebKit returned HTTP 200 OK instead of HTTP 429 Too Many Requests.</div>
+            </div>
+          </div>
+
+          <div class="bva-bar">
+            <div style="font-weight:800;font-size:0.92rem;">📐 Equivalence Partitioning &amp; 6-Point Boundary Value Analysis (BVA) — Password Field (8 to 64 Characters)</div>
+            <div class="bva-points">
+              <div class="bva-item bva-reject">Min - 1 (7 chars)<br/>❌ Reject Inline</div>
+              <div class="bva-item bva-accept">Min (8 chars)<br/>✅ Accept Valid</div>
+              <div class="bva-item bva-accept">Min + 1 (9 chars)<br/>✅ Accept Valid</div>
+              <div class="bva-item bva-accept">Max - 1 (63 chars)<br/>✅ Accept Valid</div>
+              <div class="bva-item bva-accept">Max (64 chars)<br/>✅ Accept Valid</div>
+              <div class="bva-item bva-reject">Max + 1 (65 chars)<br/>❌ Reject Inline</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: S1/P1 Bug Report -->
+        <div id="tab-bug" class="wb-panel">
+          <div class="code-block">[DEFECT-TC-003] [Security / Safari 17 WebKit] Account Lockout Not Enforced After 5 Consecutive Failed Login Attempts
+----------------------------------------------------------------------------------------------------------------
+• Reported By:     Muqadas Nisar (SQA Engineer)
+• Severity / Prio: Severity: S1 (Critical) | Priority: P1 (High — Immediate Fix Required)
+• Environment:     macOS Sonoma / Windows 11 | Safari 17.4 WebKit | Staging API v1.4.2
+• Preconditions:   Active account 'muqadas.qa@enterprise.io' with rate-limiting middleware enabled.
+
+STEPS TO REPRODUCE:
+1. Navigate to https://staging.enterprise.io/auth/login on Safari 17.4 (WebKit).
+2. Submit 5 consecutive invalid password payloads within a 60-second window.
+3. Submit a 6th login attempt with valid or invalid credentials and inspect the HTTP status code.
+
+EXPECTED RESULT:
+System returns HTTP 429 Too Many Requests and locks the account for 15 minutes.
+
+ACTUAL RESULT OBSERVED:
+Server returned HTTP 200 OK on the 6th attempt; Redis rate-limit key 'rl:webkit' bypassed.
+Evidence Log: [12:04:19] ERROR AuthRateLimiter: Redis key 'rl:webkit' skipped -> Expected HTTP 429, Got HTTP 200 OK</div>
+        </div>
+
+        <!-- Tab 3: Postman API Script -->
+        <div id="tab-api" class="wb-panel">
+          <div class="code-block">// Postman API Test Automation — Status Code, SLA &amp; Schema Verification (Muqadas Nisar)
+pm.test("1. HTTP Status Code is 200 OK", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("2. API Response Time SLA is under 500ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(500);
+});
+
+pm.test("3. JSON Schema &amp; JWT Session Token Persistence", function () {
+    const jsonData = pm.response.json();
+    pm.expect(jsonData.status).to.eql("success");
+    pm.expect(jsonData.user.email).to.be.a("string");
+    pm.expect(jsonData.token).to.be.a("string").and.not.empty;
+    pm.environment.set("auth_token", jsonData.token);
+});</div>
+        </div>
+
+        <!-- Tab 4: SQL Backend Verification -->
+        <div id="tab-sql" class="wb-panel">
+          <div class="code-block">-- 1. INNER JOIN: Verify Customer Order is accurately linked to Payment Transaction
+SELECT u.email, o.order_id, o.total_amount, p.payment_status, p.transaction_id
+FROM orders o
+INNER JOIN users u ON o.user_id = u.id
+INNER JOIN payments p ON p.order_id = o.order_id
+WHERE o.order_id = 10452;
+
+-- 2. LEFT JOIN: Detect Orphan Orders with NO Payment Record (Critical Data Integrity Check)
+SELECT o.order_id, o.user_id, o.created_at
+FROM orders o
+LEFT JOIN payments p ON o.order_id = p.order_id
+WHERE p.payment_id IS NULL;
+
+-- 3. GROUP BY &amp; HAVING: Audit Users Table for Duplicate Email Registrations
+SELECT email, COUNT(*) AS duplicate_count
+FROM users
+GROUP BY email
+HAVING COUNT(*) &gt; 1;</div>
+        </div>
+
+        <!-- Tab 5: Playwright E2E Automation -->
+        <div id="tab-pw" class="wb-panel">
+          <div class="code-block">import { test, expect } from '@playwright/test';
+
+test.describe('Enterprise Authentication &amp; Security Regression Suite', () =&gt; {
+  test('TC-001: Verify Valid Login redirects user to Dashboard', async ({ page }) =&gt; {
+    await page.goto('https://app.enterprise.io/auth/login');
+    await page.getByLabel('Email Address').fill('muqadas.qa@enterprise.io');
+    await page.getByLabel('Password').fill('ValidPass#2026');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+
+    await expect(page).toHaveURL(/.*\/dashboard/);
+    await expect(page.getByRole('heading', { name: 'Welcome, Muqadas' })).toBeVisible();
+  });
+
+  test('TC-003: Verify Account Lockout Banner after 5 Failed Login Attempts', async ({ page }) =&gt; {
+    await page.goto('https://app.enterprise.io/auth/login');
+    for (let attempt = 1; attempt &lt;= 6; attempt++) {
+      await page.getByLabel('Email Address').fill('muqadas.qa@enterprise.io');
+      await page.getByLabel('Password').fill(`WrongPass_${attempt}`);
+      await page.getByRole('button', { name: 'Sign In' }).click();
+    }
+    await expect(page.getByRole('alert')).toContainText('Account locked for 15 minutes');
+  });
+});</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements & Recognition -->
+    <section id="achievements">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">🏆 Recognition &amp; QA Impact</div>
+          <h2 class="section-title">Key Achievements</h2>
+        </div>
+      </div>
+
+      <div class="achievements-row">
+        <div class="ach-card">
+          <div class="ach-icon">🏅</div>
+          <div>
+            <div class="ach-title">Employee of the Month</div>
+            <div class="ach-sub">Recognized for exceptional QA ownership &amp; release quality</div>
+          </div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-icon">🎨</div>
+          <div>
+            <div class="ach-title">Figma-to-Production Parity</div>
+            <div class="ach-sub">Pixel-accurate UI &amp; responsiveness QA on Chef Bright &amp; Sub Tracker</div>
+          </div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-icon">🤖</div>
+          <div>
+            <div class="ach-title">AI &amp; Healthcare Workflow QA</div>
+            <div class="ach-sub">Validated Voice/Chat AI &amp; compliance flows on CovAlign, Aleen AI &amp; Octo Braino</div>
+          </div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-icon">🍔</div>
+          <div>
+            <div class="ach-title">Multi-Portal Ecosystem QA</div>
+            <div class="ach-sub">End-to-end Web, Mobile, Admin, Kitchen &amp; Driver QA on Pommy Foods &amp; SkilledTalk</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact-card">
+        <div>
+          <div class="section-eyebrow">📬 Let's Connect</div>
+          <h2 class="section-title">Hire an SQA Engineer Who Ships With Confidence</h2>
+          <p style="color:var(--text-secondary);margin-top:14px;font-size:0.98rem;">
+            Looking for a dedicated SQA Engineer for Manual &amp; Functional Testing, Figma UI Parity, Postman API Testing, Apache JMeter Performance Testing, or Playwright Automation? Let's connect!
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;">
+            <a href="mailto:muqadasnisar.sqa@gmail.com" class="btn-primary">📧 Send Email Now</a>
+            <button type="button" class="btn-outline" onclick="copyEmail()" id="copyEmailBtn">📋 Copy Email Address</button>
+          </div>
+        </div>
+
+        <div class="contact-methods">
+          <a href="mailto:muqadasnisar.sqa@gmail.com" class="contact-item">
+            <div>
+              <div style="font-size:0.75rem;color:var(--text-muted);font-weight:700;">EMAIL ADDRESS</div>
+              <div style="font-weight:800;font-size:0.95rem;">muqadasnisar.sqa@gmail.com</div>
+            </div>
+            <span>↗</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/muqadas-nisar" target="_blank" rel="noreferrer" class="contact-item">
+            <div>
+              <div style="font-size:0.75rem;color:var(--text-muted);font-weight:700;">LINKEDIN PROFILE</div>
+              <div style="font-weight:800;font-size:0.95rem;">linkedin.com/in/muqadas-nisar</div>
+            </div>
+            <span>↗</span>
+          </a>
+
+          <a href="https://github.com/muqadasnisar-sqa" target="_blank" rel="noreferrer" class="contact-item">
+            <div>
+              <div style="font-size:0.75rem;color:var(--text-muted);font-weight:700;">GITHUB PROFILE</div>
+              <div style="font-weight:800;font-size:0.95rem;">github.com/muqadasnisar-sqa</div>
+            </div>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 <strong>Muqadas Nisar</strong> — Software Quality Assurance (SQA) Engineer • Built with precision &amp; deployed live on <strong>Vercel</strong> ⚡</p>
+  </footer>
+
+  <!-- Printable ATS-Ready SQA Resume Modal -->
+  <div class="modal-overlay" id="resumeModal" onclick="if(event.target===this) closeResumeModal()">
+    <div class="resume-modal">
+      <div class="resume-toolbar no-print">
+        <div style="font-weight:800;font-size:1rem;">📄 Muqadas Nisar — Software Quality Assurance (SQA) Engineer CV</div>
+        <div style="display:flex;gap:8px;">
+          <button type="button" class="btn-primary" style="padding:8px 14px;font-size:0.82rem;" onclick="window.print()">🖨️ Print / Save as PDF</button>
+          <button type="button" class="btn-outline" style="padding:8px 14px;font-size:0.82rem;color:#0F172A;border-color:#CBD5E1;" onclick="closeResumeModal()">✕ Close</button>
+        </div>
+      </div>
+
+      <div style="border-bottom:2px solid #0F172A;padding-bottom:14px;margin-bottom:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div>
+          <h1 style="font-size:1.65rem;font-weight:800;color:#0F172A;">MUQADAS NISAR</h1>
+          <div style="font-weight:700;color:#7C3AED;font-size:0.98rem;">Software Quality Assurance (SQA) Engineer</div>
+        </div>
+        <div style="font-size:0.84rem;text-align:right;color:#334155;">
+          <div>📧 muqadasnisar.sqa@gmail.com</div>
+          <div>🔗 linkedin.com/in/muqadas-nisar</div>
+          <div>💻 github.com/muqadasnisar-sqa</div>
+          <div>📍 Rawalpindi / Islamabad, Pakistan</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <h3 style="font-size:0.92rem;text-transform:uppercase;letter-spacing:0.06em;color:#7C3AED;margin-bottom:4px;">Professional Summary</h3>
+        <p style="font-size:0.87rem;color:#1E293B;line-height:1.55;">
+          Detail-oriented Software Quality Assurance (SQA) Engineer with 3+ years of hands-on experience in Manual Functional Testing, Figma-to-UI Parity, Regression Testing, Cross-Device Responsiveness, REST API Testing (Postman), Performance &amp; Load Testing (Apache JMeter), SQL Database Verification, and Playwright UI Automation across 20+ Web, Mobile, and AI applications.
+        </p>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <h3 style="font-size:0.92rem;text-transform:uppercase;letter-spacing:0.06em;color:#7C3AED;margin-bottom:6px;">Core Technical Competencies</h3>
+        <p style="font-size:0.85rem;color:#1E293B;line-height:1.55;">
+          <strong>QA Methodologies:</strong> Requirement Analysis (SRS/PRD), Test Case &amp; RTM Design, Equivalence Partitioning (EP), Boundary Value Analysis (BVA), Smoke, Sanity, Regression, Figma UI Parity, Usability &amp; Cross-Browser Compatibility Testing.<br/>
+          <strong>Tools &amp; Automation:</strong> Postman (`pm.test` scripts), Apache JMeter, Jira, Playwright (`@playwright/test`), Gherkin BDD (`.feature`), SQL (`INNER/LEFT JOIN`, Data Integrity), Chrome DevTools (HAR traces), OWASP Top 10 Security Testing.
+        </p>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <h3 style="font-size:0.92rem;text-transform:uppercase;letter-spacing:0.06em;color:#7C3AED;margin-bottom:6px;">Work Experience</h3>
+        <div style="margin-bottom:10px;">
+          <div style="display:flex;justify-content:space-between;font-weight:800;font-size:0.9rem;">
+            <span>Software Quality Assurance Engineer — Alright Tech Private Limited (Rawalpindi)</span>
+            <span>05/2024 – Present</span>
+          </div>
+          <ul style="padding-left:18px;font-size:0.84rem;color:#334155;margin-top:4px;">
+            <li>Collaborate directly with clients during requirements gathering, sprint reviews, and defect triage meetings.</li>
+            <li>Perform UI/UX, Functional, Figma Parity, Postman API, Regression, and Apache JMeter Load Testing across 20+ production apps.</li>
+            <li>Designed &amp; developed SpecToTest Studio for automated 11-category test suite synthesis and multi-sheet Excel defect reporting.</li>
+          </ul>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-weight:800;font-size:0.9rem;">
+            <span>Software Quality Assurance Engineer — Appium Logics Solution</span>
+            <span>09/2023 – 06/2024</span>
+          </div>
+          <ul style="padding-left:18px;font-size:0.84rem;color:#334155;margin-top:4px;">
+            <li>Executed manual functional, regression, and boundary value test suites to ensure high release stability.</li>
+            <li>Authored reproducible defect reports and verified bug fixes in fast-paced Agile/Scrum cycles.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size:0.92rem;text-transform:uppercase;letter-spacing:0.06em;color:#7C3AED;margin-bottom:4px;">Selected Production Projects Tested (20+)</h3>
+        <p style="font-size:0.84rem;color:#334155;line-height:1.5;">
+          <strong>CovAlign AI</strong> (AI Home-Care Web &amp; Admin CRM — UI, Functional, API &amp; Performance QA) • <strong>Pommy Foods</strong> (Web, Mobile App, Admin Portal, Kitchen &amp; Driver Ecosystem) • <strong>SkilledTalk</strong> (Website &amp; Mobile App — UI, Functional, API &amp; Performance QA) • <strong>Chef Bright</strong> (Figma Parity, UI, Functional, Regression &amp; Responsiveness QA) • <strong>SpecToTest Studio</strong> • <strong>Aleen AI</strong> &amp; <strong>Octo Braino</strong> • <strong>Sirmoney</strong> &amp; <strong>Sub Tracker</strong> • <strong>Potolo</strong>, <strong>Samanta</strong> &amp; <strong>Cartengo</strong> • <strong>VPN</strong>, <strong>Sing N Track</strong>, <strong>Consult Chat</strong>, <strong>Apply Pool</strong>, <strong>Auto Inventory</strong>, <strong>Balamove</strong>, <strong>EEB Cleaning</strong>, <strong>XOblack</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const PROJECTS = [
+      {
+        name: "CovAlign AI",
+        domain: "ai",
+        badge: "HealthTech AI",
+        desc: "UI, Functional, Performance & API testing across the AI Home-Care web platform, Voice & Chat intake workflows, Kanban Admin CRM, Medical-Need forms, and compliance modules.",
+        tags: ["UI & Functional QA", "API Testing", "Performance QA"]
+      },
+      {
+        name: "Pommy Foods",
+        domain: "mobile",
+        badge: "FoodTech",
+        desc: "End-to-end UI, Functional, Performance & API testing across Customer Web, Mobile App, Admin Portal, Kitchen Module, and Driver Delivery App ensuring seamless order & inventory workflows.",
+        tags: ["Web & Mobile App", "Admin, Kitchen & Driver", "UI, API & Performance"]
+      },
+      {
+        name: "SkilledTalk",
+        domain: "mobile",
+        badge: "Web & Mobile",
+        desc: "Comprehensive UI, Functional, Performance & API testing across Website and Mobile App covering social feed, professional network, job portal, real-time chat, and video consultations.",
+        tags: ["Website & Mobile App", "UI & Functional QA", "API & Performance"]
+      },
+      {
+        name: "Chef Bright",
+        domain: "mobile",
+        badge: "FoodTech",
+        desc: "Performed Figma design parity testing, UI testing, Functional testing, Regression testing, and Cross-Device Responsiveness testing from design specs to production release.",
+        tags: ["Figma & UI Testing", "Functional & Regression", "Responsiveness QA"]
+      },
+      {
+        name: "SpecToTest Studio ⚡",
+        domain: "ai",
+        badge: "QA Platform",
+        desc: "Autonomous QA Test Case Engineering & Live Execution Platform ingesting SRS PDFs, URLs, and UI Screenshots into 11-category test suites and 2-sheet Excel bug logs.",
+        tags: ["11 QA Categories", "Excel & BDD Export", "Built by Muqadas"]
+      },
+      {
+        name: "Aleen AI",
+        domain: "ai",
+        badge: "AI Platform",
+        desc: "AI workflow testing including prompt/response validation, REST API testing, and usability validation for high model output accuracy.",
+        tags: ["AI Workflow QA", "API Testing", "Usability"]
+      },
+      {
+        name: "Octo Braino",
+        domain: "ai",
+        badge: "AI SaaS",
+        desc: "Comprehensive AI platform testing focusing on functional accuracy, response latency, usability, and cross-browser UI validation.",
+        tags: ["AI Validation", "UI/UX Parity", "Functional QA"]
+      },
+      {
+        name: "Sirmoney",
+        domain: "fintech",
+        badge: "FinTech",
+        desc: "End-to-end financial workflow testing including secure API payload verification, boundary value checks, and transaction ledger accuracy.",
+        tags: ["FinTech QA", "Payment Security", "API & SQL"]
+      },
+      {
+        name: "VPN Security Suite",
+        domain: "fintech",
+        badge: "Cybersecurity",
+        desc: "Security-focused UI, functional, and tunnel API testing for encrypted connectivity stability, session persistence, and leak prevention.",
+        tags: ["Security QA", "Network & API", "Stability"]
+      },
+      {
+        name: "Potolo",
+        domain: "fintech",
+        badge: "E-Commerce",
+        desc: "UI, Functional, Postman API & Apache JMeter Performance testing with full test case authoring and execution for high-traffic releases.",
+        tags: ["JMeter Load QA", "API Testing", "Test Suites"]
+      },
+      {
+        name: "Samanta",
+        domain: "fintech",
+        badge: "Web Platform",
+        desc: "UI, functional, API, and performance testing ensuring zero-regression release stability and a seamless customer journey.",
+        tags: ["Performance QA", "Regression", "API"]
+      },
+      {
+        name: "Sub Tracker",
+        domain: "fintech",
+        badge: "SaaS Billing",
+        desc: "Figma-based UI & functional testing across mobile app, web portal, and admin panel ensuring billing accuracy and responsiveness.",
+        tags: ["Figma Parity", "Web & Admin", "Cross-Device"]
+      },
+      {
+        name: "Cartengo",
+        domain: "fintech",
+        badge: "E-Commerce",
+        desc: "End-to-end shopping cart, checkout, and UI responsiveness validation across desktop, tablet, iOS, and Android viewports.",
+        tags: ["Checkout QA", "Responsive Matrix", "Functional"]
+      },
+      {
+        name: "Balamove",
+        domain: "mobile",
+        badge: "Logistics",
+        desc: "Logistics & dispatch module testing including real-time API status transitions, geolocation flows, and full regression coverage.",
+        tags: ["Logistics QA", "API Contracts", "Regression"]
+      },
+      {
+        name: "Consult Chat",
+        domain: "ai",
+        badge: "Real-Time SaaS",
+        desc: "Real-time messaging UI, WebSocket/API responsiveness, and cross-module state validation for seamless live consultations.",
+        tags: ["Real-Time Messaging", "API QA", "Responsiveness"]
+      },
+      {
+        name: "Sing N Track",
+        domain: "mobile",
+        badge: "Media App",
+        desc: "Structured test case design, Jira defect lifecycle tracking, and daily developer triage for rapid bug resolution.",
+        tags: ["Defect Triage", "Test Execution", "Agile"]
+      },
+      {
+        name: "Apply Pool",
+        domain: "ai",
+        badge: "HRTech Portal",
+        desc: "End-to-end testing for multi-step candidate application submission workflows, file upload bounds, and form validations.",
+        tags: ["Form BVA", "Workflow E2E", "Validation"]
+      },
+      {
+        name: "Auto Inventory",
+        domain: "mobile",
+        badge: "Enterprise ERP",
+        desc: "Functional and REST API testing for inventory stock synchronization, search filters, and database state accuracy.",
+        tags: ["ERP & Inventory", "API & SQL", "Functional"]
+      },
+      {
+        name: "EEB Cleaning",
+        domain: "mobile",
+        badge: "Booking App",
+        desc: "Service scheduling and booking workflow testing ensuring calendar accuracy, functional stability, and intuitive UX.",
+        tags: ["Booking Flows", "UX Quality", "Regression"]
+      },
+      {
+        name: "XOblack",
+        domain: "mobile",
+        badge: "Cross-Device",
+        desc: "Cross-browser and multi-device UI, functional, and API testing ensuring system stability across Blink, WebKit, and mobile OS.",
+        tags: ["Cross-Browser", "API Testing", "System QA"]
+      }
+    ];
+
+    function renderProjects(domainFilter = 'all') {
+      const grid = document.getElementById('projectsGrid');
+      const filtered = domainFilter === 'all'
+        ? PROJECTS
+        : PROJECTS.filter(p => p.domain === domainFilter);
+
+      grid.innerHTML = filtered.map(p => `
+        <article class="project-card">
+          <div>
+            <div class="project-top">
+              <div class="project-name">${p.name}</div>
+              <span class="project-domain">${p.badge}</span>
+            </div>
+            <p class="project-desc">${p.desc}</p>
+          </div>
+          <div class="project-tags">
+            ${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function filterProjects(domain, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProjects(domain);
+    }
+
+    function switchWbTab(panelId, btn) {
+      document.querySelectorAll('.wb-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.wb-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById(panelId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      document.getElementById('themeBtn').textContent = next === 'light' ? '🌙 Dark' : '☀️ Light';
+    }
+
+    function openResumeModal() {
+      document.getElementById('resumeModal').classList.add('open');
+    }
+
+    function closeResumeModal() {
+      document.getElementById('resumeModal').classList.remove('open');
+    }
+
+    function copyEmail() {
+      navigator.clipboard.writeText('muqadasnisar.sqa@gmail.com');
+      const btn = document.getElementById('copyEmailBtn');
+      btn.textContent = '✅ Copied: muqadasnisar.sqa@gmail.com';
+      setTimeout(() => {
+        btn.textContent = '📋 Copy Email Address';
+      }, 2500);
+    }
+
+    renderProjects('all');
+  </script>
+</body>
+</html>

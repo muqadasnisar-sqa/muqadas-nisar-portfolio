@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="sqaBg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#14102E"/>
+      <stop offset="100%" stop-color="#090718"/>
+    </linearGradient>
+    <linearGradient id="sqaGrad" x1="12" y1="10" x2="108" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="52%" stop-color="#9333EA"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+    <linearGradient id="sqaCheck" x1="38" y1="45" x2="84" y2="78" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer Squircle Badge -->
+  <rect x="6" y="6" width="108" height="108" rx="28" fill="url(#sqaBg)" stroke="url(#sqaGrad)" stroke-width="5"/>
+  <!-- Quality Assurance Shield -->
+  <path d="M60 20L92 33V59C92 80.5 78.2 96.4 60 103C41.8 96.4 28 80.5 28 59V33L60 20Z" fill="rgba(147, 51, 234, 0.16)" stroke="url(#sqaGrad)" stroke-width="4.5" stroke-linejoin="round"/>
+  <!-- Verification Checkmark -->
+  <path d="M44 60.5L55.5 72L78 47.5" stroke="url(#sqaCheck)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
