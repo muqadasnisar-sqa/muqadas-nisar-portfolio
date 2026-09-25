@@ -632,22 +632,28 @@
       border-color: var(--accent-pink);
       box-shadow: var(--shadow-glow);
     }
+    .project-card {
+      overflow: hidden;
+    }
     .project-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      width: 100%;
     }
     .project-name {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 800;
       color: var(--text-primary);
+      line-height: 1.25;
+      min-width: 0;
     }
     .project-domain {
-      font-size: 0.7rem;
+      font-size: 0.66rem;
       font-weight: 800;
-      padding: 3px 9px;
+      padding: 3px 8px;
       border-radius: 999px;
       background: var(--grad-subtle);
       border: 1px solid var(--border);
@@ -1658,7 +1664,7 @@ Order is submitted with an empty phone number, causing driver contact failure in
       {
         name: "SpecToTest Studio ⚡",
         domain: "ai",
-        badge: "Built by Me • #1 Flagship",
+        badge: "Built by Me",
         desc: "Designed & built this AI-powered SQA system using Generative AI & Prompt Engineering that generates comprehensive manual test cases from SRS PDFs, URLs, and UI Screenshots and exports 2-sheet Excel defect reports.",
         tags: ["Built by Me", "Generative AI & Prompt Eng.", "Test Case & Excel Bug Export"],
         liveUrl: "https://spectotest-studio.vercel.app"
@@ -1673,21 +1679,21 @@ Order is submitted with an empty phone number, causing driver contact failure in
       {
         name: "Pommy Foods",
         domain: "mobile",
-        badge: "FoodTech Multi-Portal",
+        badge: "FoodTech",
         desc: "Created & executed test cases and conducted UI, Functional, Performance & API testing across Customer Web, Mobile App, Admin Portal, Kitchen Module, and Driver Delivery App.",
         tags: ["Test Cases Created & Executed", "Web, App, Admin, Kitchen & Driver", "UI, API & Performance"]
       },
       {
         name: "SkilledTalk",
         domain: "mobile",
-        badge: "Website & Mobile App",
+        badge: "Web & Mobile",
         desc: "Created & executed test cases and performed UI, Functional, Performance & API testing across Website and Mobile App covering AI communication coaching and user workflows.",
         tags: ["Test Cases Created & Executed", "Website & Mobile App", "UI, API & Performance"]
       },
       {
         name: "Chef Bright",
         domain: "mobile",
-        badge: "Figma to Production",
+        badge: "Figma & UI",
         desc: "Created and executed test cases and conducted end-to-end testing from Figma designs to production, including Figma UI testing, Functional testing, Regression testing, and Responsiveness testing.",
         tags: ["Test Cases Created & Executed", "Figma & UI Testing", "Functional, Regression & Responsive"]
       },
@@ -1708,7 +1714,7 @@ Order is submitted with an empty phone number, causing driver contact failure in
       {
         name: "XOblack",
         domain: "mobile",
-        badge: "Cross-Device Platform",
+        badge: "Cross-Device",
         desc: "Created and executed test cases and performed cross-browser and multi-device UI, functional, regression, and API testing ensuring software stability.",
         tags: ["Test Cases Created & Executed", "UI & Functional QA", "Cross-Device & Regression"]
       },
@@ -1729,7 +1735,7 @@ Order is submitted with an empty phone number, causing driver contact failure in
       {
         name: "Sub Tracker",
         domain: "fintech",
-        badge: "App, Web & Admin",
+        badge: "Multi-Portal",
         desc: "Created & executed test cases and executed Figma-based UI and functional testing for SubTracker across app, web, and admin panel.",
         tags: ["Test Cases Created & Executed", "Figma-Based UI QA", "App, Web & Admin"]
       },
@@ -1778,7 +1784,7 @@ Order is submitted with an empty phone number, causing driver contact failure in
       {
         name: "Consult Chat",
         domain: "ai",
-        badge: "Communication App",
+        badge: "Real-Time App",
         desc: "Created & executed test cases for real-time chat workflows, UI responsiveness, and API message synchronization.",
         tags: ["Test Cases Created & Executed", "UI & Functional QA", "API Testing"]
       },
@@ -1819,7 +1825,7 @@ Order is submitted with an empty phone number, causing driver contact failure in
               <span class="project-domain">${p.badge}</span>
             </div>
             <p class="project-desc">${p.desc}</p>
-            ${p.liveUrl ? `<div style="margin-top:10px;"><a href="${p.liveUrl}" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:800;color:#EC4899;text-decoration:none;padding:4px 10px;border-radius:8px;background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.35);">🌐 Live System: spectotest-studio.vercel.app ↗</a></div>` : ''}
+            ${p.liveUrl ? `<div style="margin-top:10px;"><a href="${p.liveUrl}" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-size:0.76rem;font-weight:800;color:#EC4899;text-decoration:none;padding:5px 11px;border-radius:8px;background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.35);white-space:nowrap;">🌐 Visit Live System ↗</a></div>` : ''}
           </div>
           <div class="project-tags">
             ${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}
